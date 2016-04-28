@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app="heroApp">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="vendor/angular/angular.min.js"></script>
+    <script src="assets/js/client.min.js"></script>
+  </head>
+  <body ng-controller="MainController as main">
+    <h1>Heroes</h1>
+
+    <h2>Create a new hero</h2>
+    <p>Alias:</p>
+    <input type="text" ng-model="main.aliasInput" />
+
+    <p>First Name:</p>
+    <input type="text" ng-model="main.firstNameInput" />
+
+    <p>Last Name:</p>
+    <input type="text" ng-model="main.lastNameInput" />
+
+    <p>City:</p>
+    <input type="text" ng-model="main.cityInput" />
+
+    <p>Power:</p>
+    <select ng-model="main.powerInput">
+      <option>
+        Invisibility
+      </option>
+      <option>
+        Flight
+      </option>
+      <option>
+        Super Speed
+      </option>
+      <option>
+        Heat Vision
+      </option>
+      <option>
+        Super Strenth
+      </option>
+      <option>
+        Accelerated Healing
+      </option>
+      <option>
+        Power Blast
+      </option>
+      <option>
+        Animal Affinity
+      </option>
+    </select>
+
+    <button ng-click="main.add()">Submit</button>
+
+    <div ng-repeat="item in main.heroList" >
+      <div style="margin: 10px; background: #EEE">
+        Alias: {{item.alias}} <br />
+        First Name: {{item.first_name}} <br />
+        Last Name: {{item.last_name}} <br />
+        City: {{item.city}} <br />
+        Power: {{item.power_name}}
+        <button ng-click="main.delete(item._id)">Delete</button>
+      </div>
+    </div>
+
+  </body>
+</html>
